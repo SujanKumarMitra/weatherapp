@@ -1,8 +1,6 @@
 package com.getweather.weatherapp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,15 +14,15 @@ import com.getweather.weatherapp.model.Error;
 import com.getweather.weatherapp.model.WeatherModel;
 
 /**
- * Servlet implementation class GetWeather
+ * Servlet implementation class GetWeatherByLocation
  */
-public class GetWeather extends HttpServlet {
+public class GetWeatherByLocation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetWeather() {
+    public GetWeatherByLocation() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,10 +32,12 @@ public class GetWeather extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			String city = request.getParameter("city");
+			String latitude = request.getParameter("lat");
+			String longitude = request.getParameter("lon");
 			String key = getServletContext().getInitParameter("auth-key");
 			Response res = ClientBuilder.newClient().target("https://api.openweathermap.org/data/2.5/weather")
-					.queryParam("q", city)
+					.queryParam("lat", latitude)
+					.queryParam("lon", longitude)
 					.queryParam("appid",key)
 					.queryParam("units", "metric")
 					.request().get();
@@ -69,6 +69,7 @@ public class GetWeather extends HttpServlet {
 			request.getSession().setAttribute("Error",new Error("500",e.getMessage()));
 			response.sendRedirect("error.jsp");
 		}
+	
 		
 	}
 

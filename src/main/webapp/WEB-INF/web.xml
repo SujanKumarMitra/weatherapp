@@ -3,8 +3,8 @@
      see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <context-param>
-  <param-name>auth-key</param-name>
-  <param-value>7f16f6dd38f68b1a4c8f384c7a00ce32</param-value>
+    <param-name>auth-key</param-name>
+    <param-value>7f16f6dd38f68b1a4c8f384c7a00ce32</param-value>
   </context-param>
   <servlet>
     <servlet-name>Jersey Web Application</servlet-name>
@@ -21,12 +21,22 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>GetWeather</display-name>
-    <servlet-name>GetWeather</servlet-name>
-    <servlet-class>com.getweather.weatherapp.controller.GetWeather</servlet-class>
+    <display-name>GetWeatherByCity</display-name>
+    <servlet-name>GetWeatherByCity</servlet-name>
+    <servlet-class>com.getweather.weatherapp.controller.GetWeatherByCity</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>GetWeather</servlet-name>
-    <url-pattern>/GetWeather</url-pattern>
+    <servlet-name>GetWeatherByCity</servlet-name>
+    <url-pattern>/GetWeatherByCity</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetWeatherByLocation</display-name>
+    <servlet-name>GetWeatherByLocation</servlet-name>
+    <servlet-class>com.getweather.weatherapp.controller.GetWeatherByLocation</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetWeatherByLocation</servlet-name>
+    <url-pattern>/GetWeatherByLocation</url-pattern>
   </servlet-mapping>
 </web-app>

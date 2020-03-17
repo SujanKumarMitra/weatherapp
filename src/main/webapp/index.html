@@ -5,12 +5,13 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="./style.css">
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="icon" href="./icon.png" type="image/png">
-  <title>Hello, world!</title>
+  <link rel="stylesheet" href="./style.css">
+  <title>Weather App</title>
 </head>
 
 <body>
@@ -29,14 +30,15 @@
           
         </ul> -->
 
-      <form action="#" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Enter a city name" aria-label="Search">
+      <form action="GetWeatherByCity" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" name="city" placeholder="Enter a city name" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         
-        <a id="map-link" class="btn btn-outline-success my-2 my-sm-0" href=""
-          onclick="getLocation()">Use Location</a>
+        
 
       </form>
+      <button id="map-link" class="btn btn-outline-success my-2 my-sm-0" href=""
+          onclick="getLocation()">Get Location</button>
     </div>
   </nav>
   <div class="jumbotron">
@@ -47,22 +49,22 @@
 
   </div>
   <div id="login-box">
-    <div class="left">
-      <h1>City Name</h1><br/>
-      <form action="SignUp" method="POST">
-      <input type="text" name="username" placeholder="Enter a city name" />
-      
-      <input type="submit" name="SignUp" value="Submit" />
-      </form>
-    </div>
-    
-    <div class="right">
-        <h1>Use Current Location</h1><br/><br/>
-        <a id="map-link" class="btn btn-outline-success my-2 my-sm-0" href=""
+        <div class="left">
+          <h1>City Name</h1>
+          <form action="GetWeatherByCity" method="POST">
+          <input type="text" name="city" placeholder="Enter a city name" />
+          
+          <input type="submit" name="SignUp" value="Submit" />
+          </form>
+        </div>
+        
+        <div class="right">
+            <h1>Use Location</h1><br/><br/>
+            <a id="map-link" class="btn btn-outline-success my-2 my-sm-0" href=""
           onclick="getLocation()">Get Location</a>
-    </div>
-    <div class="or">OR</div>
-  </div>
+        </div>
+        <div class="or">OR</div>
+      </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
