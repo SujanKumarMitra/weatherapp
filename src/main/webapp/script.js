@@ -12,7 +12,7 @@ function showPosition(position) {
 //	for localhost uncomment this and comment live server url
 //    window.location.href = `/weatherapp/GetWeatherByLocation?lat=${latitude}&lon=${longitude}`;
 //  for live server uncommemnt this and comment localhost url
-    window.location.href = `//GetWeatherByLocation?lat=${latitude}&lon=${longitude}`;
+    window.location.href = `/GetWeatherByLocation?lat=${latitude}&lon=${longitude}`;
 }
 
 function error() {
