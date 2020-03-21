@@ -10,7 +10,7 @@ function showPosition(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
 
-    window.location.href = `http://localhost:8080/weatherapp/GetWeatherByLocation?lat=${latitude}&lon=${longitude}`;
+    window.location.href = `/weatherapp/GetWeatherByLocation?lat=${latitude}&lon=${longitude}`;
 }
 
 function error() {
